@@ -1,0 +1,826 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+:root {
+    --gris38 : #383838;
+    --vert : #559111;
+    --blanc : #f8f8f8;
+    --gris60 : #606060;
+    --gris25 : #252525;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Helvetica;
+}
+
+
+/*DESKTOP DESKTOP DESKTOP DESKTOP*/
+@media (min-width: 768px) {
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-areas:
+        "a b"
+        "c d";
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 10% 90%;
+    }
+
+    #divTitre {
+        z-index: 2;
+        grid-area: a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--vert);
+        /* border-bottom: solid .5rem var(--vert);
+        border-right: solid .5rem var(--vert); */
+        color: var(--blanc);
+        font-size: 1.4vw;
+    }
+
+    #divTitre a {
+        text-decoration: none;
+        color: var(--blanc);
+    }
+
+    #divHautDroite {
+        z-index: 1;
+        grid-area: b;
+        background-color: var(--gris38);
+        border-bottom: solid .5rem var(--vert);
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+        0 2px 2px rgba(0,0,0,0.15), 
+        0 4px 4px rgba(0,0,0,0.15), 
+        0 8px 8px rgba(0,0,0,0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--blanc);
+        font-size: 1.5rem;
+    }
+
+    #divGauche {
+        z-index: 1;
+        grid-area: c;
+        background-color: var(--gris38);
+        border-right: solid .5rem var(--vert);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        font-weight: 400;
+        -webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.37); 
+        box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.37);
+    }
+
+    #divGauche a {
+        text-align: center;
+        font-size: 1.6vw;
+        text-decoration: none;
+        color: var(--blanc);
+        transition-duration: .3s;
+    }
+
+    #divGauche a:hover {
+        color: var(--vert);
+    }
+
+    #divGauche .ligne {
+        height: .2rem;
+        width: 5vw;
+        background-color: var(--blanc);
+    }
+
+    #divGauche span:last-of-type a {
+        font-size: 1.2vw;
+    }
+
+    #divGauche form {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center; 
+    }
+
+    #divGauche form input, #divGauche form select{
+        outline: none;
+        border: none;
+        text-align: center;
+        width: 8vw;
+        height: 1.5vw;
+    }
+
+    #divGauche form input[type=submit]{
+        font-size: 1.6vw;
+        border: none;
+        height: 2.5vw;
+        width: 8.5vw;
+        background-color: var(--gris25);
+        outline: none;
+        color: var(--blanc);
+        border-radius: .5rem;
+        transition-duration: .3s;
+        cursor: pointer;
+    }
+
+    #divGauche form input[type=submit]:hover{
+        background-color: var(--vert);
+    }
+
+
+    #divGauche label {
+        font-size: 1.6vw;
+        color: var(--blanc);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    #mainUser {
+        grid-area: d;
+        background-color: var(--blanc);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        overflow: scroll;
+    }
+
+    #mainProjet {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: scroll;
+    }
+
+    #mainProjet #mainProjetTitre{
+        order: 1;
+        height: 20%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--vert);
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: fixed;
+    }
+
+    #mainProjet form {
+        margin-top: 15%;
+        order: 2;
+    }
+
+    .divTache {
+        order: 3;
+        width: 100%;
+        display: flex;
+
+    }
+
+    .tache {
+        background-color: var(--vert);
+        color: var(--blanc);
+        font-size: 1.5rem;
+        padding: .5rem;
+    }
+
+    .divTache .tache:nth-of-type(1) {
+        margin-left: 2rem;
+    }
+
+
+    #mainProjet table {
+        order: 4;
+        align-self: flex-start;
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        margin-top: 5rem;
+        margin-left: 1rem;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+              0 2px 2px rgba(0,0,0,0.15), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.15);
+    }
+
+    #mainProjet table tr {
+        border-bottom: 1px solid #bbbbbb;
+    }
+
+    #mainProjet table tr:first-of-type {
+        border-bottom: none;
+        background-color: var(--vert);
+        height: 4rem;
+    }
+
+    #mainProjet table tr:first-of-type th {
+        color: var(--blanc);
+    }
+
+    #mainProjet table th {
+        border-bottom: 1px solid #bbbbbb;
+        padding: .5rem;
+        width: 10rem;
+        font-size: 1.3rem;
+        color: var(--gris38);
+    }
+
+    #mainProjet table th:nth-child(n+8){
+        width: 4rem;
+        font-size: .7rem;
+    }
+
+    #mainProjet table td {
+        border-bottom: 1px solid #bbbbbb;
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--gris60);
+        width: 12rem;
+        height: 4rem;
+        padding: .3rem;
+    }
+
+    #mainProjet table td:nth-child(n+8){
+        border-right: 1px dotted #bbbbbb;
+        border-left: 1px dotted #bbbbbb;
+    }
+
+    main h2 {
+        font-size: 2rem;
+        color: var(--gris25);
+    }
+
+    main .containerForm {
+        height : 30rem;
+        width: 30rem;
+        background-color: var(--gris38);
+        margin: 2rem;
+        display: grid;
+        grid-template-rows: 10% 1fr 10%;
+    }
+
+    main .containerForm h1 {
+        width: 100%;
+        color: var(--blanc);
+        padding: 1rem;
+        place-self: center;
+        text-align: center;
+        background-color: var(--vert);
+    }
+
+    main .containerForm form {
+        place-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 2rem;
+    }
+
+    main .containerForm form * {
+        margin: .5rem;
+        text-align: center;
+    }
+
+    main .containerForm form input {
+        width: 20rem;
+        height: 2rem;
+    }
+
+    main .containerForm form input[type = submit] {
+        width: 14rem;
+        height: 2.5rem;
+        padding: .2rem;
+        border-radius: .5rem;
+        outline: none;
+        border: none;
+        background-color: var(--gris25);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--blanc);
+        transition-duration: .3s;
+        text-transform: uppercase;
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+
+    main .containerForm form input[type = submit]:hover {
+        background-color: var(--vert);
+    }
+
+    main .containerForm p {
+        font-size: 1.5rem;
+        color: #c4c2c2;
+        text-align: center;
+        place-self: center;
+    }
+/*  LOGIN DELETE 
+    .containerLogin {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr 10%;
+        grid-template-areas:
+        "b"
+        "c";
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerLogin h2 {
+        grid-area: a;
+        text-align: center;
+        font-size: 3rem;
+        color: var(--gris25);
+    }
+
+    .containerLogin > div {
+        grid-area: b;
+        height: 35vh;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--gris38);
+        border-radius: .5rem;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+        0 2px 2px rgba(0,0,0,0.15), 
+        0 4px 4px rgba(0,0,0,0.15), 
+        0 8px 8px rgba(0,0,0,0.15);
+    }
+
+    .containerLogin > div form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--gris25);
+    }
+
+    .inputLogin {
+        height: 70%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .containerLogin > div form #idLoginDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: .2rem solid var(--blanc);
+    }
+
+    .containerLogin > div form #mdpLoginDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerLogin > div form #submitLogin {
+        margin-top: 2rem;
+        width: 20rem;
+    }
+
+    .containerLogin > div form label {
+        font-size: 2rem;
+        color: var(--blanc);
+        align-self: flex-start;
+        margin-left: 8rem;
+    }
+
+    .containerLogin > div form .inputLogin input {
+        text-align: center;
+        outline: none;
+        border: none;
+        background-color: var(--blanc);
+        width: 70%;
+        height: 3rem;
+        margin-top: 1rem;
+    }
+
+    .containerLogin > div form input[type=submit] {
+        font-size: 2rem;
+        border: none;
+        height: 3rem;
+        width: 14rem;
+        background-color: var(--gris25);
+        outline: none;
+        color: var(--blanc);
+        border-radius: .5rem;
+        transition-duration: .5s;
+    }
+
+    .containerLogin > div form input[type=submit]:hover {
+        background-color: var(--vert);
+    }
+
+    .containerLogin span {
+        grid-area: c;
+        font-size: 1.5rem;
+        color: var(--gris25);
+        text-align: center;
+    }
+
+    .containerLogin span a {
+        text-decoration: none;
+        color: var(--vert);
+    } */
+
+    #btnMenuPouce {
+        display: none;
+    }
+
+    #rechercheMobile {
+        display: none;
+    }
+
+    #menuPouce {
+        display: none;
+    }
+
+    th {
+        width: 5000px;
+    }
+}
+
+/*MOBILE MOBILE MOBILE MOBILE*/
+@media (max-width: 768px) {
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-areas:
+        "a b"
+        "c d";
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 10% 90%;
+        background-color: var(--blanc);
+    }
+
+    #divTitre {
+        z-index: 2;
+        grid-area: a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--vert);
+        /* border-bottom: solid .5rem var(--vert);
+        border-right: solid .5rem var(--vert); */
+        color: var(--blanc);
+        font-size: 1.6vh;
+        
+    }
+
+    #divTitre a {
+        text-decoration: none;
+        color: var(--blanc);
+    }
+
+    #divHautDroite {
+        z-index: 1;
+        grid-area: b;
+        background-color: var(--gris38);
+        border-bottom: solid .5rem var(--vert);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--blanc);
+        font-size: 1.9vh;
+    }
+
+    #divGauche {
+        z-index: 0;
+        background-color: var(--gris38);
+        border-right: solid .5rem var(--vert);
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        font-weight: 400;
+        -webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.37); 
+        box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.37);
+    }
+
+    #divGauche a {
+        text-align: center;
+        font-size: 2vh;
+        text-decoration: none;
+        color: var(--blanc);
+        transition-duration: .3s;
+    }
+
+    #divGauche a:hover {
+        color: var(--vert);
+    }
+
+    #divGauche .ligne {
+        height: .2rem;
+        width: 8vh;
+        background-color: var(--blanc);
+    }
+
+    #divGauche form {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center; 
+    }
+
+    #divGauche form input, #divGauche form select{
+        outline: none;
+        border: none;
+        text-align: center;
+        width: 12vh;
+        height: 2vh;
+        font-size: 1.7vh;
+    }
+
+    #divGauche form input[type=submit]{
+        font-size: 2vh;
+        border: none;
+        height: 2.5vh;
+        width: 12vh;
+        background-color: var(--gris25);
+        outline: none;
+        color: var(--blanc);
+        border-radius: .3rem;
+        transition-duration: .5s;
+    }
+
+    #divGauche form input[type=submit]:active{
+        background-color: var(--vert);
+    }
+
+
+    #divGauche label {
+        font-size: 2vh;
+        color: var(--blanc);
+        margin-left: .1rem;
+        margin-right: .1rem;
+    }
+
+    main {
+        grid-area: 2 / 1 / span 1 / span 2;
+        background-color: var(--blanc);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: scroll;
+    }
+
+    main h2 {
+        font-size: 2rem;
+        color: var(--gris25);
+    }
+
+    /* LOGIN DELETE */
+    /* .containerLogin {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr 10%;
+        grid-template-areas:
+        "b"
+        "c";
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerLogin h2 {
+        grid-area: a;
+        text-align: center;
+        font-size: 3rem;
+        color: var(--gris25);
+    }
+
+    .containerLogin > div {
+        grid-area: b;
+        height: 35vh;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--gris38);
+        border-radius: .5rem;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+        0 2px 2px rgba(0,0,0,0.15), 
+        0 4px 4px rgba(0,0,0,0.15), 
+        0 8px 8px rgba(0,0,0,0.15);
+    }
+
+    .containerLogin > div form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--gris25);
+    }
+
+    .inputLogin {
+        height: 70%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .containerLogin > div form #idLoginDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: .2rem solid var(--blanc);
+    }
+
+    .containerLogin > div form #mdpLoginDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerLogin > div form #submitLogin {
+        margin-top: 2rem;
+        width: 20rem;
+    }
+
+    .containerLogin > div form label {
+        font-size: 2rem;
+        color: var(--blanc);
+        align-self: flex-start;
+        margin-left: 8rem;
+    }
+
+    .containerLogin > div form .inputLogin input {
+        text-align: center;
+        outline: none;
+        border: none;
+        background-color: var(--blanc);
+        width: 70%;
+        height: 3rem;
+        margin-top: 1rem;
+    }
+
+    .containerLogin > div form input[type=submit] {
+        font-size: 2rem;
+        border: none;
+        height: 3rem;
+        width: 14rem;
+        background-color: var(--gris25);
+        outline: none;
+        color: var(--blanc);
+        border-radius: .5rem;
+        transition-duration: .5s;
+    }
+
+    .containerLogin > div form input[type=submit]:hover {
+        background-color: var(--vert);
+    }
+
+    .containerLogin span {
+        grid-area: c;
+        font-size: 1.5rem;
+        color: var(--gris25);
+        text-align: center;
+    }
+
+    .containerLogin span a {
+        text-decoration: none;
+        color: var(--vert);
+    } */
+
+    #btnMenuPouce {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: var(--vert);
+        color: var(--blanc);
+        font-size: 2.5rem;
+        font-weight: 550;
+        transition-duration: .3s;
+    }
+
+    #btnMenuPouce:active {
+        background-color: #6bb416;
+    }
+
+    #rechercheMobile {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        height: 50vh;
+        width: 70vw;
+        background-color: var(--gris38);
+    }
+
+    #rechercheMobile form {
+        height: 50vh;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+
+    #rechercheMobile form label {
+        font-size: 2rem;
+        color: var(--blanc);
+    }
+
+    #rechercheMobile form input, #rechercheMobile form select {
+        width: 15rem;
+        height: 3rem;
+        text-align: center;
+        color: var(--gris60);
+    }
+
+    #rechercheMobile form input[type = submit] {
+        outline: none;
+        border: none;
+        border-radius: .5rem;
+        background-color: var(--vert);
+        color: var(--blanc);
+        font-size: 3vh;
+        padding: .5vh;
+        transition-duration: .4s;
+        height: 2.5rem;
+    }
+
+    #rechercheMobile form input[type = submit]:active {
+        background-color: #6bb416;
+    }
+
+    #menuPouce {
+        z-index: 1;
+        height: 30rem;
+        width: 15rem;
+        bottom: 0; right: 0;
+        position: fixed;
+        background-color: var(--gris38);
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #menuPouce span {
+        text-decoration: none;
+        color: var(--blanc);
+        transition-duration: .3s;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    #menuPouce > span > a {
+        text-decoration: none;
+        color: var(--blanc);
+        transition-duration: .3s;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    #menuPouce a:active {
+        color: var(--vert);
+    }
+
+    #menuPouce > span:nth-of-type(5) > a {
+        font-size: 1.5rem;
+    }
+
+    #menuPouce .ligne {
+        height: .2rem;
+        width: 10rem;
+        background-color: var(--blanc);
+    }
+
+}
