@@ -41,5 +41,3 @@ if ( $(window).width() < 768) {
     mainEl.addEventListener("click", hideMenuPouce);
     divHautDroiteEl.addEventListener("click", hideMenuPouce);
 }
-
-

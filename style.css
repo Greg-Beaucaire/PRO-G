@@ -27,8 +27,8 @@ html {
         grid-template-areas:
         "a b"
         "c d";
-        grid-template-columns: 10% 90%;
-        grid-template-rows: 10% 90%;
+        grid-template-columns: 10vw 1fr;
+        grid-template-rows: 10vh 1fr;
     }
 
     #divTitre {
@@ -143,27 +143,28 @@ html {
         margin-right: 1rem;
     }
 
-    #mainUser {
-        grid-area: d;
-        background-color: var(--blanc);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        overflow: scroll;
-    }
 
+/* MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET MAIN PROJET */
     #mainProjet {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        overflow: scroll;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto min-content 2rem;
+        grid-template-areas:
+        "a b"
+        "c d"
+        "e f"
+        "g h"
+        "i j"
+        "k l"
+        ;
+        /* height: 90vh;
+        width: 90vw; */
+        overflow: auto;
     }
 
     #mainProjet #mainProjetTitre{
-        order: 1;
-        height: 20%;
+        grid-area: a / a / a / b ;
+        height: 10rem;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -172,96 +173,255 @@ html {
         font-size: 3rem;
         font-weight: 600;
         text-transform: uppercase;
-        position: fixed;
     }
 
-    #mainProjet form {
-        margin-top: 15%;
-        order: 2;
+
+    #mainProjet form input, #mainProjet form select {
+        outline: none;
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--gris38);
+    }
+
+    #mainProjet form input {
+        border: 1px solid var(--gris60);
+    }
+
+    #mainProjet form button {
+        border: none;
+        font-size: 1.8rem;
+        padding: .7rem;
+        margin-left: 1rem;
+        background-color: var(--vert);
+        color: var(--blanc);
+        border-radius: .5rem;
+        transition-duration: .3s;
+    }
+
+    #mainProjet form button:hover {
+        background-color:  #67af15;
+    }
+
+    #mainProjet form:first-of-type {
+        grid-area: e / a / e / a;
+        justify-self: center;
+    }
+
+    #mainProjet form:nth-of-type(2) {
+        grid-area: f / b / f / b;
+        justify-self: center;
+    }
+
+    #mainProjet form:last-of-type {
+        grid-area: c / c / c / d;
+        justify-self: center;
+        display: grid;
+        margin-bottom: 5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "a b"
+        "c d";
+    }
+
+    #mainProjet form:last-of-type label {
+        grid-area: a / a / a / b;
+        justify-self: center;
+        align-self: center;
+
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--gris38);
+    }
+
+    #mainProjet form:last-of-type select {
+        grid-area: c / a / c / a;
+        justify-self: center;
+        align-self: center;
+        width: 20rem;
+    }
+
+    #mainProjet form:last-of-type button {
+        grid-area: d/ b / d / b;
+        justify-self: center;
+        align-self: center;
+        width: 20rem;
     }
 
     .divTache {
-        order: 3;
-        width: 100%;
-        display: flex;
-
+        grid-area: g / a / g / b;
+        height: 30rem;
+        display: grid;
+        grid-auto-flow: column;
+        overflow: auto;
     }
 
     .tache {
+        width: 30rem;
+        height: 25rem;
         background-color: var(--vert);
         color: var(--blanc);
+        border-radius: .5rem;
         font-size: 1.5rem;
-        padding: .5rem;
+        margin: 1rem;
+        padding: 1rem;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+              0 2px 2px rgba(0,0,0,0.15), 
+              0 4px 4px rgba(0,0,0,0.15), 
+              0 8px 8px rgba(0,0,0,0.15);
+        display: grid;
+        grid-template-rows: 20% 1fr;
     }
 
     .divTache .tache:nth-of-type(1) {
         margin-left: 2rem;
     }
 
+    .tache h2 {
+        align-self: center;
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 
-    #mainProjet table {
-        order: 4;
-        align-self: flex-start;
-        border-collapse: collapse;
-        table-layout: fixed;
-        width: 100%;
-        margin-top: 5rem;
-        margin-left: 1rem;
+    .tache div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--blanc);
+        height: 20rem;
+        align-self: center;
+        border-radius: .5rem;
+    }
+
+    .tache div p {
+        margin: .5rem;
+        color: var(--gris38);
+    }
+
+    .tache div p span {
+        font-weight: 600;
+    }
+
+    .tableMainProjet {
+        grid-area: i / a / i / b;
+        overflow-x: auto;
+        width: 98%;
+        margin-bottom: 2rem;
+        justify-self: center;
+        margin-top: 2rem;
         box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
               0 2px 2px rgba(0,0,0,0.15), 
               0 4px 4px rgba(0,0,0,0.15), 
               0 8px 8px rgba(0,0,0,0.15);
     }
 
-    #mainProjet table tr {
-        border-bottom: 1px solid #bbbbbb;
+    #mainProjet .tableMainProjet table {
+        width: 100%;
+        border-collapse: collapse;
+        vertical-align: top;
     }
 
-    #mainProjet table tr:first-of-type {
+    #mainProjet .tableMainProjet table  {
+        vertical-align: bottom;
+    }
+
+    #mainProjet .tableMainProjet table > * > * {
+        padding: 1rem 1rem;
+    }
+
+    #mainProjet table thead tr:first-of-type {
         border-bottom: none;
         background-color: var(--vert);
-        height: 4rem;
+        height: 2rem;
     }
 
     #mainProjet table tr:first-of-type th {
         color: var(--blanc);
     }
 
+    #mainProjet table thead tr:nth-of-type(2) {
+        border-bottom: none;
+        background-color: var(--vert);
+        height: 2rem;
+    }
+
+    #mainProjet table tr:nth-of-type(2) th {
+        color: var(--blanc);
+    }
+
     #mainProjet table th {
         border-bottom: 1px solid #bbbbbb;
         padding: .5rem;
-        width: 10rem;
         font-size: 1.3rem;
         color: var(--gris38);
     }
+    /* ICICICCICICICICCICICICICICICCII*/
+    #mainProjet table tr:first-of-type th:nth-child(-n+7){
+        width: 15rem;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
 
-    #mainProjet table th:nth-child(n+8){
-        width: 4rem;
-        font-size: .7rem;
+    #mainProjet table tr:first-of-type th:nth-child(n+8){
+        width: 60rem;
+        font-size: 3rem;
+        border-left: 1px solid #bbbbbb;
+        border-right: 1px solid #bbbbbb;
+        text-transform: uppercase;
+    }
+
+    #mainProjet table tr:nth-of-type(2) th{
+        font-size: 1.3rem;
+        border-left: 1px solid #bbbbbb;
+        border-right: 1px solid #bbbbbb;
     }
 
     #mainProjet table td {
-        border-bottom: 1px solid #bbbbbb;
         padding: .5rem;
         text-align: center;
         font-size: 1.2rem;
         color: var(--gris60);
-        width: 12rem;
         height: 4rem;
         padding: .3rem;
     }
 
-    #mainProjet table td:nth-child(n+8){
-        border-right: 1px dotted #bbbbbb;
-        border-left: 1px dotted #bbbbbb;
+    #mainProjet table tr td:nth-child(-n+7){
+        border-bottom: 1px solid #bbbbbb;
     }
 
-    main h2 {
+    #mainProjet table tr:last-of-type td:nth-child(-n+7){
+        border-bottom: none;
+    }
+
+    #mainProjet table tr td:nth-child(7){
+        border-right: 1px solid #bbbbbb;
+    }
+
+    #mainProjet table tr td:nth-of-type(n+8){
+        border: 1px dotted #bbbbbb;
+    }
+
+
+    /* MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR MAIN UTILISATEUR */
+
+    #mainUser {
+        grid-area: d;
+        background-color: var(--blanc);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: scroll;
+    }
+
+    #mainUser h2 {
         font-size: 2rem;
         color: var(--gris25);
     }
 
-    main .containerForm {
+    #mainUser .containerForm {
         height : 30rem;
         width: 30rem;
         background-color: var(--gris38);
@@ -270,7 +430,7 @@ html {
         grid-template-rows: 10% 1fr 10%;
     }
 
-    main .containerForm h1 {
+    #mainUser .containerForm h1 {
         width: 100%;
         color: var(--blanc);
         padding: 1rem;
@@ -279,7 +439,7 @@ html {
         background-color: var(--vert);
     }
 
-    main .containerForm form {
+    #mainUser .containerForm form {
         place-self: center;
         display: flex;
         flex-direction: column;
@@ -288,17 +448,43 @@ html {
         margin: 2rem;
     }
 
-    main .containerForm form * {
+    #mainUser .grandForm {
+        height: 40rem;
+        width: 62rem;
+    }
+
+    #mainUser .grandForm form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mainUser .grandForm form div{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 25rem;
+        width: 50rem;
+    }
+
+    #mainUser .containerForm form * {
         margin: .5rem;
         text-align: center;
     }
 
-    main .containerForm form input {
+    #mainUser .containerForm form input, main .containerForm form select {
         width: 20rem;
         height: 2rem;
+        text-align: center;
+        outline: none;
     }
 
-    main .containerForm form input[type = submit] {
+    #mainUser .containerForm form select {
+        height: 2.25rem;
+    }
+
+    #mainUser .containerForm form input[type = submit] {
         width: 14rem;
         height: 2.5rem;
         padding: .2rem;
@@ -315,16 +501,33 @@ html {
         cursor: pointer;
     }
 
-    main .containerForm form input[type = submit]:hover {
+    #mainUser .containerForm form input[type = submit]:hover {
         background-color: var(--vert);
     }
 
-    main .containerForm p {
+    #mainUser .containerForm p {
         font-size: 1.5rem;
         color: #c4c2c2;
         text-align: center;
         place-self: center;
     }
+
+    #mainUser .containerForm label {
+        color: #f8f8f8;
+        font-size: 1.5rem;
+        margin-bottom: -.3rem;
+    }
+
+    .flexBreak {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    #mainUser .containerForm .flexBreakForm {
+        height: 2rem;
+        width: 20rem;
+    }
+
 /*  LOGIN DELETE 
     .containerLogin {
         height: 100%;
@@ -452,10 +655,6 @@ html {
 
     #menuPouce {
         display: none;
-    }
-
-    th {
-        width: 5000px;
     }
 }
 
