@@ -1,3 +1,4 @@
+window.onload = changeEchelleTempsGeneral;
 
 if ( $(window).width() < 768) {     
     //Desktop
@@ -7,6 +8,7 @@ if ( $(window).width() < 768) {
         let menuPouceEl = document.getElementById("menuPouce");
         menuPouceEl.style.display = "flex";
         btnMenuPouceEl.style.display = "none";
+        console.log('bite');
     }
 
     btnMenuPouceEl.addEventListener('click', menuPouceFunc);
@@ -41,3 +43,38 @@ if ( $(window).width() < 768) {
     mainEl.addEventListener("click", hideMenuPouce);
     divHautDroiteEl.addEventListener("click", hideMenuPouce);
 }
+
+
+function changeEchelleTempsGeneral(){
+    let btnEchelleTempsMoisElement = document.getElementById('btnEchelleTempsMois');
+    let btnEchelleTempsSemainesElement = document.getElementById('btnEchelleTempsSemaines');
+
+    let divTableMois = document.getElementById('tableMois');
+    let divTableSemaines = document.getElementById('tableSemaines');
+
+    function changeEchelleTempsMois() {
+
+        divTableSemaines.style.display = 'none';
+        divTableMois.style.display = 'block';       
+    }
+
+    function changeEchelleTempsSemaines(){
+        divTableMois.style.display = 'none';
+        divTableSemaines.style.display = 'block';
+    }
+
+    btnEchelleTempsMoisElement.addEventListener("click", changeEchelleTempsMois);
+    btnEchelleTempsSemainesElement.addEventListener("click", changeEchelleTempsSemaines);
+}
+
+let mainDiv = document.getElementsByTagName('main');
+
+$(mainDiv).scroll(function() {
+    sessionStorage.scrollTop = $(this).scrollTop();
+});
+  
+$(document).ready(function() {
+if (sessionStorage.scrollTop != "undefined") {
+    $(mainDiv).scrollTop(sessionStorage.scrollTop);
+}
+});
