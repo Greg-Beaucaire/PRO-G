@@ -8,7 +8,6 @@ if ( $(window).width() < 768) {
         let menuPouceEl = document.getElementById("menuPouce");
         menuPouceEl.style.display = "flex";
         btnMenuPouceEl.style.display = "none";
-        console.log('bite');
     }
 
     btnMenuPouceEl.addEventListener('click', menuPouceFunc);
